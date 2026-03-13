@@ -1,0 +1,67 @@
+# CSET419 – Introduction to Generative AI
+
+## Lab 7: Neural Style Transfer (NST)
+
+### Objective
+
+The objective of this lab is to implement **Neural Style Transfer (NST)** using a pretrained convolutional neural network (VGG19). The goal is to generate a new image that combines the **content of one image** with the **artistic style of another image**.
+
+### Dataset
+
+This implementation uses:
+
+* **CIFAR-10 dataset** for selecting the **content image**.
+* A **WikiArt painting image** for the **style reference**.
+
+CIFAR-10 provides small object images, while WikiArt contains artistic paintings that help transfer texture and style patterns.
+
+### Methodology
+
+1. **Data Preparation**
+
+   * Load a content image from the CIFAR-10 dataset.
+   * Load a style image from a WikiArt painting.
+   * Resize both images to the same dimensions.
+
+2. **Model Selection**
+
+   * Use a pretrained **VGG19 convolutional neural network**.
+   * Freeze the model weights so they are not updated during training.
+
+3. **Feature Extraction**
+
+   * Extract **content features** from deeper layers of the network.
+   * Extract **style features** from multiple convolutional layers.
+   * Compute **Gram matrices** to represent style patterns.
+
+4. **Loss Functions**
+
+   * **Content Loss:** Measures how different the generated image is from the content image.
+   * **Style Loss:** Measures the difference between style patterns of the generated image and the style image.
+   * **Total Loss:** Combination of content and style losses.
+
+5. **Optimization**
+
+   * Initialize the generated image with the content image.
+   * Iteratively update the generated image using gradient optimization to minimize total loss.
+
+### Expected Output
+
+The final output image should:
+
+* Preserve the **structure and objects** of the content image.
+* Apply **textures, colors, and brush patterns** from the style image.
+* Produce a visually **artistic stylized image**.
+
+### Learning Outcomes
+
+After completing this lab, students will understand:
+
+* How pretrained CNNs can be used for feature extraction.
+* The concept of **content representation and style representation** in images.
+* The role of **Gram matrices in capturing artistic styles**.
+* How optimization techniques can generate new images using deep learning.
+
+### Conclusion
+
+Neural Style Transfer demonstrates how deep learning models can combine visual characteristics from different images to produce creative outputs. This technique is widely used in digital art, image editing applications, and generative AI systems.
